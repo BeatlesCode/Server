@@ -3,6 +3,7 @@ from django.shortcuts import render, HttpResponse
 from .forms import UploadForm
 from django.views.decorators.http import require_POST
 from shutil import copyfile
+import eyed3
 import os
 
 from pygame import mixer
@@ -13,9 +14,6 @@ from django.contrib import messages
 
 def index(request):
     return render(request, 'index.html')
-
-def output(request):
-    return render(request, 'output.html')
 
 @require_POST
 @csrf_exempt
@@ -50,3 +48,13 @@ def index_upload(request):
 def save_music(src):
     copyfile("D:\\" + src, os.getcwd()+"\\media\\music")
     print(os.getcwd()+"\\media\\music")
+
+def readMataData():
+    audiotag = eyed3.load("")
+    artist = audiotag.tag.artist
+    images = audiotag.tag.images
+    title = audiotag.tag.title
+
+    print(audiotag.tag.artist)
+    print(audiotag.tag.images)
+    print(audiotag.tag.title)

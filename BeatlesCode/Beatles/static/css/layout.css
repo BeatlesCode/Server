@@ -1,0 +1,206 @@
+html, body{
+    height: 100%;
+}
+
+header{
+    flex: 0 1 50px;
+    background-color: #555555;
+    position: relative;
+    text-align: center;
+    line-height: 50px;
+
+}
+header>img{
+    position: absolute;
+    top : 5px;
+    left: 5px;
+
+}
+header span{
+    color: #ffffff;
+
+}
+#container{
+    margin: 0 100px;
+    background-color: #9ff9ef;
+
+}
+#main{
+
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+#selection{
+    position: absolute;
+    border-style: none;
+    top: 40px;
+    right: 40px;
+    background-color: white;
+    color: grey;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#selection>div{
+    top: -3px;
+    right: 13px;
+    position: absolute;
+    vertical-align: middle;
+}
+#line_container{
+    width: 80%;
+
+}
+#line_container > *{
+    display: inline-block;
+}
+#intro{
+    display: none;
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: 100%;
+}
+#audio_ui{
+    background-color: #3a3a3a;
+    flex: 1 1 60px;
+    position: relative;
+}
+#record{
+    width: 50px;
+    height: 50px;
+    margin-right: 50px;
+    border-radius: 50%;
+    background-color: transparent;
+    border-style: solid;
+    border-color: white;
+    border-width: thin;
+    position: relative;
+    float: left;
+    cursor: pointer;
+}
+#record>div{
+    position: absolute;
+    top: 15px;
+    left: 14px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+}
+#record:hover div{
+    background-color: black;
+}
+#myFile{
+    position: absolute;
+    top: -500%;
+}
+.fill {
+    background-color: white;
+    flex: 1 1 auto;
+}
+#audio_ui .menus{
+    color: white;
+    position: absolute;
+    width: 50%;
+    left: 45%;
+    height: 60px;
+    top: 20%;
+    margin: auto;
+    text-align: center;
+
+}
+#audio_ui .menus>a{
+    vertical-align: middle;
+    float: left;
+    color: white;
+    margin-right: 50px;
+    font-size: 25px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+#audio_ui .menus>a:hover{
+    color: black;
+}
+.dofade{
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 2s;
+    animation-name: fade;
+    animation-duration: 2s;
+
+}
+.wrapper_body{
+    position: fixed;
+    top:0;
+    left: 0;
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: 100%;
+
+    background-color: #5D5D5E
+}
+.wrapper_parent {
+    flex: 1 1 auto;
+}
+.wrapper {
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: minmax(160px, auto);
+    /*grid-template-columns: repeat(auto-fill, minmax(200px, 1fr) ) ;*/
+    background-color: #5D5D5E;
+    color: #444;
+}
+
+.box {
+    background-color:#9C9B97;
+    color: #fff;
+    border-radius: 0px;
+    padding: 20px;
+    font-size: 100%;
+    justify-self: center;
+}
+.transparent_btn{
+    background-color: transparent;
+    border-style: none;
+    color: white;
+}
+.transparent:hover{
+    border-style = none;
+
+}
+button{
+    outline: none;
+    border: none;
+
+}
+button:click{
+    outline: none;
+    border: none;
+ }
+
+button:visited{
+    outline: none;
+    border: none;
+}
+@-webkit-keyframes fade {
+    from {opacity: 1}
+    to {opacity: 0.2}
+}
+
+@keyframes fade {
+    from {opacity: 1}
+    to {opacity: 0.2}
+}
+
+@media screen and (max-width: 600px) {
+    #container{
+        margin: 0;
+    }
+
+}

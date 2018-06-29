@@ -23,7 +23,7 @@ function uploadFile(){
     console.log(pair[0]+ ', ' + pair[1]);
     }
     console.log(file);
-        $.ajax({
+        $.ajax({    
         url: 'index_upload/',
         type: 'POST',
         data: filedata,
