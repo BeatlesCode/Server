@@ -14,6 +14,9 @@ from django.contrib import messages
 def index(request):
     return render(request, 'index.html')
 
+def output(request):
+    return render(request, 'output.html')
+
 @require_POST
 @csrf_exempt
 def index_upload(request):
