@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load staticfiles %}
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <script src="{% static 'js/common.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>BeatlesCode</title>
 </head>
 <body>
-hello world
+<header>
+
+</header>
+<section id="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form name="index_upload" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{form.as_p}}
+                파일 추가하기 <input type="file" name="myFile" id="myFile" />
+                <!--<input type="text" name="test1" id="test1">-->
+            </form>
+            <button id="uploadbtn" class="btn">파일 업로드</button>
+        </div>
+    </div>
+
+
+</section>
+
+
+
 </body>
 </html>

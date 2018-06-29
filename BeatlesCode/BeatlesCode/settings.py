@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Beatles',
+    'Beatles', ## 설정
 ]
 
 MIDDLEWARE = [
@@ -77,6 +77,7 @@ WSGI_APPLICATION = 'BeatlesCode.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR,'BeatlesCode'),
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
@@ -104,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
 TIME_ZONE = 'UTC'
 
@@ -114,7 +115,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+## 설정
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
@@ -122,3 +123,6 @@ STATIC_URL = '/static/'
 # BASE_DIR은 앞에 내가 추가한 url 이 있다면 자동으로 넣어줌 {% static '' %} 이부분
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # STATIC_ROOT = os.path.join('', 'static')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
