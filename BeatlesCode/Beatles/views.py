@@ -15,6 +15,22 @@ from django.contrib import messages
 def index(request):
     return render(request, 'index.html')
 
+def output(request) :
+    os.system("python ../../../chord_recognition_ai/chord-recognition-ai/chord-recognition/main.py") # 코드 추출 시작
+
+    inFp= open("../../chord_recognition_ai/chord-recognition-ai/data/final_chord.txt", "r")
+    inList = inFp.read();
+    str = ""
+    for i in inList:
+
+        # print(i, end="")
+        str += i;
+
+    # print(str)
+    save(str ,"final_chord")
+
+    return render(request, 'output.html')
+
 @require_POST
 @csrf_exempt
 def index_upload(request):
@@ -45,16 +61,32 @@ def index_upload(request):
             return HttpResponse("실패")
 
 
-def save_music(src):
-    copyfile("D:\\" + src, os.getcwd()+"\\media\\music")
-    print(os.getcwd()+"\\media\\music")
 
-def readMataData():
-    audiotag = eyed3.load("")
-    artist = audiotag.tag.artist
-    images = audiotag.tag.images
-    title = audiotag.tag.title
 
-    print(audiotag.tag.artist)
-    print(audiotag.tag.images)
-    print(audiotag.tag.title)
+
+def save(textList , fileName) :
+    outFp = open(fileName + ".json", "w",)
+    inList = textList.split("\n")
+    emp1,emp2 = 0,0;
+    for inStr in inList :
+        if not inStr:
+            break;
+        emp1 += 1;
+
+    temp_list = list()
+    empty_list = list()
+    flag = 0
+
+    for inStr in inList :
+        if not inStr:
+            break;
+        print(inStr)
+        temp = inStr.split(" ")
+        print(temp)
+
+        if (flag == 0):
+            outFp.write('{ "start" : "' + temp[0] + '", "finish" : "' + temp[1] + '", "code" : "' + temp[2] + '"}')
+            flag = 1
+        else:
+            outFp.write(',\n{ "start" : "' + temp[0] + '", "finish" : "' + temp[1] + '", "code" : "' + temp[2] + '"}')
+    outFp.close()

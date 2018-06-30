@@ -17,12 +17,26 @@
 <div id="main">
     <header>
         <img src="{% static 'images/logo.png' %}">
-        <span id="songinfo">노래 정보가 없습니다.</span>
+        <span id="songinfo">리스트</span>
     </header>
-    <div style="background-color: black;flex: 0 1 20px;"></div>
+    <div id="play">
+    <div class="fill_black"></div>
     <img src="{% static 'images/musicicon.png' %}" width="100%" style="flex: 0 1 240px;">
-    <div style="background-color: black;flex: 0 1 20px;"></div>
-    <div style="background-color: #555555;flex: 2 1 auto">
+    <div class="fill_black"></div>
+    <div class="grey_padding">
+    </div>
+    </div>
+    <div id="list" class="wrapper_parent">
+        <div class="wrapper">
+            <div class="box a"><img src="{% static 'images/jaurim.jpg' %}"></div>
+            <div class="box b"><img src="{% static 'images/jaurim2.jpg' %}"></div>
+            <div class="box c"><a href="{% url 'output' %}"><img src="{% static 'images/abc.png' %}"></a></div>
+            <div class="box d"><img src="{% static 'images/unknown.png' %}"></div>
+            <div class="box e"><img src="{% static 'images/unknown.png' %}"></div>
+            <div class="box f"><img src="{% static 'images/unknown.png' %}"></div>
+            <div class="box g"><img src="{% static 'images/unknown.png' %}"></div>
+            <div class="box h"><img src="{% static 'images/unknown.png' %}"></div>
+        </div>
     </div>
     <div id="audio_ui">
         <button  id="selection">
@@ -46,7 +60,7 @@
 
 
 <div id="intro">
-    <img src="{% static 'images/Web1920_012x.png" width="100%" height="100%">
+    <img src="{% static 'images/Web1920_012x.png' %}" width="100%" height="100%">
 </div>
 
 

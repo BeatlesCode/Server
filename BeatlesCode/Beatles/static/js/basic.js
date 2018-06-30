@@ -1,6 +1,8 @@
 /**
  * Created by chou6 on 2018-06-28.
  */
+let play, list;
+let mode = 0;
 let shouldStop = false;
 let stopped = false;
 let mediaRecorder;
@@ -9,6 +11,10 @@ window.addEventListener('load', function () {
     // Not showing vendor prefixes.
     $("#intro").addClass("dofade");
     $("#intro").css("opacity","0");
+    document.getElementById('intro').addEventListener('animationend',hideIntro);
+    play = $("#play");
+    list = $("#list");
+    document.getElementById('menubtn').addEventListener('click',switchmode);
     document.getElementById('selection').addEventListener('click',invokeSelection);
     document.getElementById('record').addEventListener('click',recordData);
     document.getElementById('myFile').addEventListener('change',uploadFile);
@@ -22,6 +28,9 @@ window.addEventListener('load', function () {
 
     downLink = document.getElementById('download');
 });
+function hideIntro() {
+    $("#intro").css('display','none');
+}
 var errorCallback = function(e) {
     console.log('Reeeejected!', e);
 };
@@ -47,7 +56,18 @@ function handleSuccess(stream) {
     });
     mediaRecorder.start();
 };
+function switchmode() {
+    if(mode == 0){
+        mode = 1;
+        play.css('display','none');
+        list.css('display','block');
 
+    }else{
+        mode = 0;
+        list.css('display','none');
+        play.css('display','flex');
+    }
+}
 function invokeSelection() {
     console.log('clicked');
     $('#myFile').click();
@@ -56,10 +76,12 @@ function uploadFile(){
     var file = document.getElementById('myFile');
     var filedata = new FormData(); // FormData 인스턴스 생성
     if (!file.value) return; // 파일이 없는 경우 빠져나오기
+     filedata.append('uploadfile', file.files[0]);
 
-    filedata.append('uploadfile', file.files[0]);
     filedata.append('fileName', file.files[0].name);
-    $("#songinfo").text(file.files[0].name);
+
+//    filedata.append('test1', test.value)
+
     for (var pair of filedata.entries()) {
     console.log(pair[0]+ ', ' + pair[1]);
     }

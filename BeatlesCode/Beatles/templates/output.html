@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+<input type="file" id="myFile"/>
 <head>
+    {% load staticfiles %}
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/layout.css">
-    <script type="text/javascript" src="assets/js/musicScore.js"></script>
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <script type="text/javascript" src="{% static 'js/musicScore.js' %}"></script>
     <title>BeatlesCode</title>
 </head>
 <body>
-<header>
-    hi
-</header>
-<section id="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div>duration : <span id="duration"></span> </div>
+<div id="main">
+    <header>
+        <span id="songinfo">연주하기</span>
+    </header>
+    <div id="play">
+        <div class="fill_black"></div>
+        <div style="flex: 0 1 240px;background-color: white;">
+
             <div id="line_container">
 
             </div>
-            <button class="btn" id="start">start</button>
+        </div>
+        <div class="fill_black"></div>
+        <div class="grey_padding">
+            <!--<input type='file' id='fileinput'>-->
+            <input class="btn" type='button' id='btnLoad' value='Load'>
+            <button class="btn" id="start">start!</button>
+        </div>
+    </div>
+</div>
+
+
+<section id="container">
+    <div class="row">
+        <div class="col-md-12">
+
+
         </div>
     </div>
 </section>
